@@ -1,0 +1,17 @@
+2. Realice un programa para cobrar el tiempo de parqueo en un 
+
+    estacionamiento, donde se cobra $139 el minuto. mostrar el valor 
+
+    total, discriminando el IVA, aproximando a la cifra de $50 siguiente. 
+
+print('Bienvenido al parqueadero')
+t=float(input('Por favor, ingrese su tiempo en el parqueadero en minutos : '))
+tem=t*139
+iva=0.19
+con_iva=tem*iva
+iva_1=tem+con_iva
+aproximado=round(iva_1/50)*50
+print('Estuvo',t,'min','Por lo cual su precio a pagar sin iva es : $',tem, )
+print('El 19% de su pago',tem,'es : $',con_iva,)
+print('Su precio a pagar incluido el iva es $ ',aproximado,)
+
