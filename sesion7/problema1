@@ -1,0 +1,24 @@
+import math
+
+def calcular_modulo(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    modulo = math.sqrt(dx**2 + dy**2)
+    return modulo
+
+def calcular_componentes(x1, y1, x2, y2):
+    dx = x2 - x1
+    dy = y2 - y1
+    return dx, dy
+
+x1 = float(input("Ingrese la coordenada x del origen: "))
+y1 = float(input("Ingrese la coordenada y del origen: "))
+x2 = float(input("Ingrese la coordenada x del final: "))
+y2 = float(input("Ingrese la coordenada y del final: "))
+
+modulo = calcular_modulo(x1, y1, x2, y2)
+
+dx, dy = calcular_componentes(x1, y1, x2, y2)
+
+print(f"El módulo del vector es: {modulo}")
+print(f"Las componentes rectangulares del vector son: Dx = {dx}, Dy = {dy}")
