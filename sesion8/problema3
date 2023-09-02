@@ -1,0 +1,23 @@
+Realice un programa que almacene diferentes números escritos por el usuario dentro de una lista hasta que se incluya un número negativo. muestre la lista resultante y después elimine los números duplicados, mostrando también esta segunda lista en pantalla.
+
+numeros = []
+
+while True:
+    numero = int(input("Ingrese un número (ingrese un número negativo para detenerse): "))
+    if numero < 0:
+        break
+    numeros.append(numero)
+
+print("Lista original:")
+print(numeros)
+
+numeros_sin_duplicados = []
+for numero in numeros:
+    if numero not in numeros_sin_duplicados:
+        numeros_sin_duplicados.append(numero)
+
+print("\nLista sin duplicados:")
+print(numeros_sin_duplicados)
+
+
+    
