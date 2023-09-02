@@ -1,0 +1,6 @@
+Realizar un programa que solicite una medida en pulgadas (decimal) y en pantalla imprima la respectiva conversión en milimetros.
+
+med=float(input('Ingrese la medida en pulgadas: '))
+con=2.54
+con=2.54*med
+print('La medida en pulgadas',med,'in','convertida a milimetros, es',con,'mm',)
