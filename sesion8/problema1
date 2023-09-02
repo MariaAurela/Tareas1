@@ -1,0 +1,17 @@
+Realice un programa que genere 15 números aleatorios y los almacene dentro de una lista. Posteriormente ordene dichos elementos de menor a mayor
+ import random
+
+# Generar 15 números aleatorios y almacenarlos en una lista
+numeros_aleatorios = [random.randint(1, 100) for _ in range(15)]
+
+# Mostrar la lista de números antes de ordenar
+print("Lista de números antes de ordenar:")
+print(numeros_aleatorios)
+
+# Ordenar la lista de números de menor a mayor
+numeros_aleatorios.sort()
+
+# Mostrar la lista de números ordenados
+print("\nLista de números ordenados de menor a mayor:")
+print(numeros_aleatorios)
+
