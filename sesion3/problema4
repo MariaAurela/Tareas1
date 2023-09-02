@@ -1,0 +1,7 @@
+Realizar un programa que calcule el valor de IVA de un producto. (IVA=19%).
+precio = float(input("Ingrese el precio del producto: "))
+iva = 0.19
+
+valor_iva = precio * iva
+
+print("El valor del IVA es :", valor_iva,'$')
