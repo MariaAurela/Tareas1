@@ -1,0 +1,22 @@
+1. Realizar un programa que solicite al usuario una letra del abecedario,   
+
+   verifique si el carácter es vocal o consonante
+
+letra_1 = input("Ingrese una letra del abecedario: ")
+
+if (letra_1 >= 'a' and letra_1 <= 'z') or (letra_1 >= 'A' and letra_1 <= 'Z'):
+    if letra_1 == 'a' or letra_1 == 'A':
+        print("La letra", letra_1, "es una vocal.")
+    elif letra_1 == 'e' or letra_1 == 'E':
+        print("La letra", letra_1, "es una vocal.")
+    elif letra_1 == 'i' or letra_1 == 'I':
+        print("La letra", letra_1, "es una vocal.")
+    elif letra_1 == 'o' or letra_1 == 'O':
+        print("La letra", letra_1, "es una vocal.")
+    elif letra_1 == 'u' or letra_1 == 'U':
+        print("La letra", letra_1, "es una vocal.")
+    else:
+        print("La letra", letra_1, "es una consonante.")
+else:
+    print("Por favor, ingrese una letra del abecedario.")
+
