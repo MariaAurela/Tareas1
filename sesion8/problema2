@@ -1,0 +1,40 @@
+meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+dias_por_mes = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+festivos_por_mes = [
+    ["Año Nuevo"],
+    ["Día de San José"],
+    ["Jueves Santo", "Viernes Santo"],
+    [],
+    ["Día del Trabajo"],
+    ["Ascensión de Jesús"],
+    ["Corpus Christi"],
+    ["Sagrado Corazón de Jesús"],
+    ["Día de la Independencia de Colombia"],
+    ["Batalla de Boyacá"],
+    ["Día de la Raza"],
+    ["Todos los Santos"],
+    ["Independencia de Cartagena"],
+    ["Navidad"]
+]
+
+mes = input("Ingrese el nombre de un mes del año: ")
+
+if mes in meses:
+    indice_mes = meses.index(mes)
+    dias = dias_por_mes[indice_mes]
+    festivos = festivos_por_mes[indice_mes]
+
+    print(f"{mes} tiene {dias} días.")
+    if festivos:
+        print(f"Festivos en {mes}:")
+        for festivo in festivos:
+            dia_festivo = (festivos_por_mes[indice_mes].index(festivo) + 6) % 7
+            dias_semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+            print(f" - {festivo} ({dias_semana[dia_festivo]})")
+    else:
+        print(f"No hay festivos registrados en {mes}.")
+else:
+    print("Mes no válido. Por favor, ingrese un nombre de mes válido.")
+
+
