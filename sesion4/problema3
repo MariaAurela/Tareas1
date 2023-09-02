@@ -1,0 +1,22 @@
+3. Realizar un programa en el que se soliciten tres longitudes y con 
+
+    estos valores se determine si se puede hacer o no un triangulo. En el 
+
+    caso que se forme un triangulo, indicar si este es equilátero, isósceles  
+
+    o escaleno. 
+
+ a = float(input('Ingrese el lado a de su triángulo: '))
+b = float(input('Ingrese el lado b de su triángulo: '))
+c = float(input('Ingrese el lado c de su triángulo: '))
+
+if a + b > c and a + c > b and b + c > a:
+    print('Es posible hacer un triángulo')
+    if a == b or b == c or a == c:
+        print('Triángulo isósceles')
+    elif a == b and b == c:
+        print('Triángulo equilátero')
+    else:
+        print('Triángulo escaleno')
+else:
+    print('No es posible formar un triángulo')
