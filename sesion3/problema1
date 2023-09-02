@@ -1,0 +1,4 @@
+Realizar un programa donde se solicite un nombre y seguido en pantalla se imprima el siguiente mensaje: "Estas en la matrix, [Nombre]"
+
+n= input('ingrese su nombre : ')
+print('Estas en la matriz',n,)
