@@ -1,0 +1,39 @@
+def main():
+    import random
+    matriz = [[random.randint(0, 200) for i in range(10)] for j in range(5)]
+
+    print("Matriz creada")
+    for fila in matriz:
+        print(fila)
+
+    max_num = matriz[0][0]
+    min_num = matriz[0][0]
+    for fila in matriz:
+        for num in fila:
+            if num > max_num:
+                max_num = num
+            if num < min_num:
+                min_num = num
+
+    posi_max_num = [0, 0]
+    posi_min_num = [0, 0]
+    for fila in range(len(matriz)):
+        for columna in range(len(matriz[0])):
+            if matriz[fila][columna] == max_num:
+                posi_max_num = [fila, columna]
+            if matriz[fila][columna] == min_num:
+                posi_min_num = [fila, columna]
+
+    print('El numero mas alto de la matriz es',max_num,'Y se encuentra en la posicion',posi_max_num,'\nEl numero mas bajo de la matriz es',min_num,'Y esta en la posicion',posicion_numero_mas_bajo,)
+    
+    for i in range(len(matriz) - 1):
+        for j in range(i + 1, len(matriz)):
+            if matriz[i][0] > matriz[j][0]:
+                matriz[i], matriz[j] = matriz[j], matriz[i]
+    print("Matriz organizada de menor a mayor")
+    for fila in matriz:
+        print(fila)
+
+
+if __name__ == "__main__":
+    main()
