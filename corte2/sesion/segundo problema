@@ -1,0 +1,10 @@
+2. Escribir una funcion recursiva que encuentre el mayor elemento de una lista.
+def num_mayor(lista):
+    may = lista[0]
+    for num in lista[1:]:
+        if num > may:
+            may = num
+    return may
+lista=[2,4,6,7,89,7]
+num_mayor(lista)
+
