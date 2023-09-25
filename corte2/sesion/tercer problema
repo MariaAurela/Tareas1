@@ -1,0 +1,13 @@
+3.  Escribir una funcion recursiva que reciba como parámetros dos strings a y b, y devuelva una lista con las posiciones en donde se encuentra b dentro de a.
+def num_posicion(a, b):
+    if len(b) == 0:
+        return [0]
+    else:
+        posicion = []
+        for i in range(len(a) - len(b) + 1):
+            if a[i: i + len(b)] == b:
+                posicion.append(i)
+        return posicion
+a='Buenos Dias, Mafe'
+b='n'
+num_posicion(a,b)
