@@ -1,4 +1,55 @@
 Realizar un ejercicio donde se calcule el IMC de las siguientes 4 personas, cuyos valores se ven en la tabla. 
 El sistema debe mostrar el valor de IMC obtenido para cada uno de las personas indicado su correspondiente escala
 
+class Persona:
+    
+    def __init__(self, nombre, altura, peso):
+        self.nombre = nombre
+        self.altura = altura
+        self.peso = peso
+
+    def calculo_de_imc(self):
+
+        return self.peso / (self.altura / 100) ** 2  
+
+    def clasificacion_de_imc(self):
+     
+        imc = self.calculo_de_imc()
+        if imc < 18.5:
+            return "Peso insuficiente"
+        elif imc < 24.9:
+            return "Peso normal"
+        elif imc < 29.9:
+            return "Sobrepeso"
+        elif imc < 35:
+            return "Obesidad grado I"
+        elif imc < 40:
+            return "Obesidad grado II"
+        else:
+            return "Obesidad grado III"
+
+
+def main():
+
+    personas = [
+        Persona("Pedro Casceres", 188, 97),
+        Persona("María Perez", 160, 47),
+        Persona("Julian Dominguez", 158, 58),
+        Persona("Jessica Fuentes", 170, 73),
+    ]
+
+    # Resultados
+    for persona in personas:
+     print(  f"Persona: {persona.nombre}\n"
+        f"Altura: {persona.altura} cm\n"
+        f"Peso: {persona.peso} kg\n"
+        f"IMC: {persona.calculo_de_imc():.2f}\n"
+        f"Clasificación: {persona.clasificacion_de_imc()}\n"
+    )
+    print()
+
+
+if __name__ == "__main__":
+    main()
+
 
