@@ -1,0 +1,136 @@
+archivo_csv = "wcm.csv"
+
+def procesar_archivo_csv(archivo):
+    with open(archivo, 'r', encoding='utf-8') as archivo_csv:
+        lineas = archivo_csv.readlines()
+
+        # 1. Conocer el número de participaciones de un equipo al mundial
+        def participaciones_equipo(equipo):
+            equipo = equipo.lower()
+            participaciones = []
+            for linea in lineas[1:]:
+                campos = linea.strip().split(',')
+                if equipo in campos[3].lower():
+                    participaciones.append(campos[0])
+            return participaciones
+
+        equipo_consultado = "colombia"
+        participaciones_colombia = participaciones_equipo(equipo_consultado)
+        print(f"{equipo_consultado.capitalize()} ha participado en {len(participaciones_colombia)} Mundiales: {', '.join(participaciones_colombia)}")
+        
+        # 2. Conocer el número de Copas Mundiales jugadas hasta la fecha
+        num_copas_mundiales = len(set(fila[0] for fila in datos_copa_mundial[1:]))
+        print(f"Número total de Copas Mundiales jugadas hasta la fecha: {num_copas_mundiales}")
+        # 3. Conocer el número de asistentes a las Copas Mundiales
+        def numero_asistentes():
+    asistentes = 0
+    for fila in datos_copa_mundial[1:]:
+        asistentes += int(fila[7])
+    return asistentes
+    total_asistentes = numero_asistentes()
+    print(f"Número total de asistentes a todas las ediciones de la Copa Mundial: {total_asistentes}")
+    # 4. Conocer el número de finales disputadas por penales
+    def finales_penales():
+    finales = 0
+    for fila in datos_copa_mundial[1:]:
+        if "penales" in fila[5].lower():
+            finales += 1
+    return finales
+    num_finales_penales = finales_penales()
+    print(f"Número de finales de la Copa Mundial definidas por penales: {num_finales_penales}")
+    # 5. Conocer el número de goles a favor de los equipos en los Mundiales
+    def goles_a_favor():
+    goles = 0
+    for fila in datos_copa_mundial[1:]:
+        goles += int(fila[4])
+    return goles
+    total_goles_a_favor = goles_a_favor()
+    print(f"Número total de goles a favor de todos los equipos en todas las ediciones de la Copa Mundial: {total_goles_a_favor}")
+    # 6. Conocer el número de goles en contra de los equipos en los Mundiales
+    def goles_en_contra():
+    goles = 0
+    for fila in datos_copa_mundial[1:]:
+        goles += int(fila[6])
+    return goles
+    total_goles_en_contra = goles_en_contra()
+    print(f"Número total de goles en contra de todos los equipos en todas las ediciones de la Copa Mundial: {total_goles_en_contra}")
+    # 7. Conocer la diferencia de goles en todas sus presentaciones
+    def diferencia_de_goles(equipo):
+    diferencia_goles = 0
+    for fila in datos_copa_mundial[1:]:
+        if fila[3].strip().lower() == equipo:
+            goles_a_favor = int(fila[4])
+            goles_en_contra = int(fila[6])
+            diferencia_goles += (goles_a_favor - goles_en_contra)
+    return diferencia_goles
+    equipo_consultado = "mexico"
+    diferencia_goles_mexico = diferencia_de_goles(equipo_consultado)
+    print(f"Diferencia total de goles para {equipo_consultado.capitalize()} en todas sus participaciones en la Copa Mundial: {diferencia_goles_mexico}")
+    # 8. Conocer el promedio de goles de un equipo en Mundiales
+    def promedio_goles(equipo):
+    goles_a_favor_equipo = 0
+    participaciones = 0
+    for fila in datos_copa_mundial[1:]:
+        if fila[3].strip().lower() == equipo:
+            goles_a_favor = int(fila[4])
+            goles_a_favor_equipo += goles_a_favor
+            participaciones += 1
+    if participaciones == 0:
+        return 0
+    promedio = goles_a_favor_equipo / participaciones
+    return promedio
+    equipo_consultado = "argentina"
+    promedio_goles_argentina = promedio_goles(equipo_consultado)
+    print(f"Promedio de goles de {equipo_consultado.capitalize()} en todas sus participaciones en la Copa Mundial: {promedio_goles_argentina:.2f}")
+    # 9. Conocer cuántas veces se han enfrentado 2 equipos en los Mundiales
+    def veces_enfrentados(equipo1, equipo2):
+    veces = 0
+    for fila in datos_copa_mundial[1:]:
+        equipo_local = fila[3].strip().lower()
+        equipo_visitante = fila[8].strip().lower()
+        if (equipo1 == equipo_local and equipo2 == equipo_visitante) or (equipo1 == equipo_visitante and equipo2 == equipo_local):
+            veces += 1
+    return veces
+    equipo1_consultado = "colombia"
+    equipo2_consultado = "japón"
+    veces_enfrentados_colombia_japon = veces_enfrentados(equipo1_consultado, equipo2_consultado)
+    print(f"{equipo1_consultado.capitalize()} y {equipo2_consultado.capitalize()} se han enfrentado {veces_enfrentados_colombia_japon} veces en ediciones pasadas de la Copa Mundial.")
+    # 10. Conocer cuál es el Mundial con más penales
+    def mundial_con_mas_penales():
+    max_penales = 0
+    mundial_max_penales = ""
+    for fila in datos_copa_mundial[1:]:
+        penales = int(fila[5].split("(")[1].split(")")[0])
+        if penales > max_penales:
+            max_penales = penales
+            mundial_max_penales = fila[0]
+    return mundial_max_penales
+    mundial_max_penales = mundial_con_mas_penales()
+    print(f"El Mundial con la mayor cantidad de penales fue {mundial_max_penales}.")
+    # 11. Conocer cuál es el Mundial con mayor número de goles
+    def mundial_con_mas_goles():
+    max_goles = 0
+    mundial_max_goles = ""
+    for fila in datos_copa_mundial[1:]:
+        goles = int(fila[4])
+        if goles > max_goles:
+            max_goles = goles
+            mundial_max_goles = fila[0]
+    return mundial_max_goles
+    mundial_max_goles = mundial_con_mas_goles()
+    print(f"El Mundial con la mayor cantidad de goles fue {mundial_max_goles}.")
+    # 12. Conocer cuáles fueron las mayores goleadas de los Mundiales
+    def mayores_goleadas():
+    mayor_diferencia = 0
+    partido_mayor_diferencia = ""
+    for fila in datos_copa_mundial[1:]:
+        goles_local = int(fila[4])
+        goles_visitante = int(fila[6])
+        diferencia = abs(goles_local - goles_visitante)
+        if diferencia > mayor_diferencia:
+            mayor_diferencia = diferencia
+            partido_mayor_diferencia = f"{fila[3]} {goles_local}-{goles_visitante} {fila[8]}"
+    return partido_mayor_diferencia
+    mayor_diferencia_goleada = mayores_goleadas()
+    print(f"Las mayores goleadas en la historia de la Copa Mundial fueron: {mayor_diferencia_goleada}")
+procesar_archivo_csv(archivo_csv)
