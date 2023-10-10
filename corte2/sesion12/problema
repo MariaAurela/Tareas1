@@ -11,13 +11,19 @@ class Ciudadano:
         return self._nombre
 
     def setCedula(self, cedula):
-        self._cedula = cedula
+        if 8 <= len(cedula) <= 10:
+            self._cedula = cedula
+        else:
+            print("La cédula debe tener entre 8 y 10 digitos")
 
     def getCedula(self):
         return self._cedula
 
     def setEdad(self, edad):
-        self._edad = edad
+        if edad > 0:
+            self._edad = edad
+        else:
+            print("La edad no puede ser negativa, debe ser un numero entero positivo")
 
     def getEdad(self):
         return self._edad
@@ -31,7 +37,6 @@ class Ciudadano:
         return self.getEdad() >= 18
 
 if __name__ == "__main__":
-    ciudadano = Ciudadano("Juan", "1890223459", 68)
+    ciudadano = Ciudadano("Nicolás", "1289384734", 28)
     ciudadano.mostrar()
     print("Es mayor de edad:", ciudadano.esMayorDeEdad())
-
