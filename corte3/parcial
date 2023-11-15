@@ -9,17 +9,15 @@ class Decimal(ConversorNumerico):
 class Binario(ConversorNumerico):
     def __init__(self,numero):
 
-class Bebida(ConversorNumerico):
+class Hexadecimal(ConversorNumerico):
     def __init__(self, mumero):
 
 
-class MaquinaDispensadora:
-    def __init__(self):
         
 
 
 def main():
-    m=input(
-
+    m=input(' Que conversion desea realizar \n a. decimal a Binario\n b. decimal a hexadecimal\n c.Binario a decimal\n d.Hexadecimal \n')
+    if 
 if __name__ == "__main__":
     main()
