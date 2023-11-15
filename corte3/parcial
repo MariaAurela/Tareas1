@@ -1,0 +1,25 @@
+class ConversorNumerico:
+    def __init__(self,numero):
+        self.numero = numero
+
+class Decimal(ConversorNumerico):
+    def __init__(self,numero):
+
+
+class Binario(ConversorNumerico):
+    def __init__(self,numero):
+
+class Bebida(ConversorNumerico):
+    def __init__(self, mumero):
+
+
+class MaquinaDispensadora:
+    def __init__(self):
+        
+
+
+def main():
+    m=input(
+
+if __name__ == "__main__":
+    main()
