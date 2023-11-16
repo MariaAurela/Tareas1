@@ -1,0 +1,48 @@
+class Articulo:
+    def __init__(self, nombre, precio, tipo_iva):
+        self.nombre = nombre
+        self.precio = precio
+        self.tipo_iva = tipo_iva
+
+    def calcular_precio_bruto(self):
+        iva = self.tipo_iva
+        precio_base = self.precio / (1 + iva / 100)
+        importe_iva = self.precio - precio_base
+        return precio_base, importe_iva
+
+def cargar_datos_desde_archivo(nombre_archivo):
+    productos = {}
+    with open(nombre_archivo, 'r') as archivo:
+        for linea in archivo:
+            nombre, iva_str = linea.strip().split(',')
+            iva = float(iva_str.rstrip('%'))
+            productos[nombre] = iva
+    return productos
+
+def main():
+    nombre_archivo = "Alimentos.txt"
+    datos_productos = cargar_datos_desde_archivo(nombre_archivo)
+
+    while True:
+        producto = input("Ingrese el nombre del producto: ")
+        precio_neto = float(input("Ingrese el precio neto: "))
+
+        if producto not in datos_productos:
+            print(f"Producto no válido: {producto}")
+            continue
+
+        tipo_iva = datos_productos[producto]
+        articulo = Articulo(producto, precio_neto, tipo_iva)
+
+        precio_base, importe_iva = articulo.calcular_precio_bruto()
+
+        print("Precio base:", precio_base)
+        print("Importe del IVA:", importe_iva)
+        print("Precio bruto:", precio_base + importe_iva)
+
+        respuesta = input("¿Desea continuar (s/n)? ")
+        if respuesta.lower() == "n":
+            break
+
+if __name__ == "__main__":
+    main()
