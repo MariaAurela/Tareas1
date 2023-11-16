@@ -1,0 +1,60 @@
+class Ciudadano:
+    def __init__(self, nombre, cedula, edad):
+        self.__nombre = nombre
+        self.__cedula = cedula
+        self.__edad = edad
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def mostrar(self):
+        print(f"Nombre: {self.__nombre} - Edad: {self.__edad} - CC: {self.__cedula}")
+
+
+class Doctor(Ciudadano):
+    def __init__(self, nombre, cedula, edad, especialidad, hospital):
+        super().__init__(nombre, cedula, edad)
+        self.__especialidad = especialidad
+        self.__hospital = hospital
+
+    def realizar_cirugia(self):
+        print(f"{self.get_nombre()} está realizando una cirugía en el hospital {self.__hospital}.")
+
+
+class Ingeniero(Ciudadano):
+    def __init__(self, nombre, cedula, edad, especialidad, empresa):
+        super().__init__(nombre, cedula, edad)
+        self.__especialidad = especialidad
+        self.__empresa = empresa
+
+    def diseñar_proyecto(self):
+        print(f"{self.get_nombre()} está diseñando un nuevo proyecto en la empresa {self.__empresa}.")
+
+
+class Artista(Ciudadano):
+    def __init__(self, nombre, cedula, edad, estilo_artistico, obras_realizadas):
+        super().__init__(nombre, cedula, edad)
+        self.__estilo_artistico = estilo_artistico
+        self.__obras_realizadas = obras_realizadas
+
+    def crear_obras(self):
+        print(f"{self.get_nombre()} está creando obras de arte en el estilo {self.__estilo_artistico}.")
+
+    def mostrar(self):
+        super().mostrar()
+        print(f"Estilo Artístico: {self.__estilo_artistico} - Obras Realizadas: {self.__obras_realizadas}")
+
+
+# Ejemplo de uso
+doctor1 = Doctor("Dr. Aurela", 35656777, 70, "Cirujano", "Hospital Central")
+ingeniero1 = Ingeniero("Ing. Aurela", 98765432, 55, "Ingeniería Mecatronica", "Construcciones S.A.")
+artista1 = Artista("Pintor Aurela", 11223344, 87, "Clasico", ["Cuadro1", "Escultura2"])
+
+doctor1.mostrar()
+doctor1.realizar_cirugia()
+
+ingeniero1.mostrar()
+ingeniero1.diseñar_proyecto()
+
+artista1.mostrar()
+artista1.crear_obras()
